@@ -10,8 +10,15 @@ jobs:
       - image: juampynr/drupal8ci:latest
       # specify the version you desire here
       - image: circleci/php:7.1.5-browsers
+      # Mysql
+      - image: mysql:latest
+        restart: always
+        environment:
+          MYSQL_DATABASE: drupal8_circleci
+          MYSQL_ROOT_PASSWORD: sentius
     working_directory: /var/www/html
     steps:
       - checkout
       - run: composer install
+      - run: drupal site:install  standard --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius"
       - run: echo "Hello Tan Tan"
