@@ -13,4 +13,5 @@ jobs:
     working_directory: /var/www/html
     steps:
       - checkout
+      - run: composer install
       - run: echo "Hello Tan Tan"
