@@ -1,0 +1,12 @@
+version: '3'
+services:
+  db:
+    image: mysql
+    environment:
+      MYSQL_DATABASE: drupal8_circleci
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+volumes:
+  db_data:
