@@ -7,7 +7,7 @@ jobs:
   build:
     docker:
       # Use custom docker
-      - image: tannguyen04/drupal8-circleci:latest
+      - image: juampynr/drupal8ci:latest
       # specify the version you desire here
       - image: circleci/php:7.1.5-browsers
     steps:
