@@ -20,5 +20,5 @@ jobs:
     steps:
       - checkout
       - run: composer install
-      - run: drupal site:install  standard --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius"
+      - run: vendor/drupal/console/bin/drupal site:install  standard --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius"
       - run: echo "Hello Tan Tan"
