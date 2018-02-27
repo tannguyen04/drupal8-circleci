@@ -20,5 +20,5 @@ jobs:
     steps:
       - checkout
       - run: composer install
-      - run: vendor/drupal/console/bin/drupal site:install  standard --account-pass="123456" --account-mail="admin@example.com" --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --langcode="en" --db-type="mysql" --db-host="127.0.0.1" 
+      - run: vendor/drupal/console/bin/drupal site:install  standard --account-pass="123456" --account-mail="admin@example.com" --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --langcode="en" --db-type="mysql"
       - run: echo "Hello Tan Tan"
