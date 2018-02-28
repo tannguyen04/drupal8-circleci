@@ -30,6 +30,6 @@ workflows:
   version: 2
   jobs:
     - build
-    - verify_coding_standards
-      requires:
+    - verify_coding_standards:
+      - requires:
         - build
