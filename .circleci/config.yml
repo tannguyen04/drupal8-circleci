@@ -21,6 +21,6 @@ jobs:
       - checkout
       - run: composer install
       - run: vendor/drupal/console/bin/drupal site:install  standard --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --no-interaction
-      - run: phpcs --config-set installed_paths vender/drupal/coder/coder_sniffer
+      - run: vendor/bin/phpcs --config-set installed_paths vender/drupal/coder/coder_sniffer
       - run: vendor/bin/phpcs --standard=Drupal web/core/modules/node
       - run: echo "Hello Tan Tan"
