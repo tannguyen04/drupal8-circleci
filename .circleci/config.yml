@@ -25,7 +25,7 @@ jobs:
     steps:
       - run: vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
       - run: vendor/bin/phpcs --standard=Drupal web/core/modules/node/node.module
-      - run: echo "Hello Tan Tan"
+      - run: echo "Hello Tan Tan Tan"
 
 workflows:
   version: 2
