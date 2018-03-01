@@ -33,7 +33,7 @@ jobs:
           command: echo $SSH_KEY >> ~/.ssh/known_hosts
       - run:
           name: Deploy nao
-          command: deploy.sh
+          command: cd ./deploy.sh
   test:
     <<: *defaults
     steps:
