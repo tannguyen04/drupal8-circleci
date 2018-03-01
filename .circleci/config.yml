@@ -2,19 +2,21 @@
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
+defaults: &defaults
+  docker:
+    # Use custom docker
+    - image: juampynr/drupal8ci:latest
+    # Mysql
+    - image: mysql:latest
+      restart: always
+      environment:
+        MYSQL_DATABASE: drupal8_circleci
+        MYSQL_ROOT_PASSWORD: sentius
+  working_directory: /var/www/html
 version: 2
 jobs:
   build:
-    docker:
-      # Use custom docker
-      - image: juampynr/drupal8ci:latest
-      # Mysql
-      - image: mysql:latest
-        restart: always
-        environment:
-          MYSQL_DATABASE: drupal8_circleci
-          MYSQL_ROOT_PASSWORD: sentius
-    working_directory: /var/www/html
+    <<: *defaults
     steps:
       - checkout
       - run: 
@@ -27,18 +29,17 @@ jobs:
           name: Set install paths for coder_sniffer 
           command: vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
   test:
-    docker:
-      # Use custom docker
-      - image: juampynr/drupal8ci:latest
+    <<: *defaults
     steps:
       - checkout
-      #- run: vendor/bin/phpcs --standard=Drupal web/core/modules/node/node.module
+      - run: 
+          name: Composer install
+          command: composer install --dev
+      - run: vendor/bin/phpcs --standard=Drupal web/core/modules/node/node.module
       - run: echo "Hello Tan Tan"
 workflows:
   version: 2
   build_and_test:
     jobs:
       - build
-      - test:
-          requires:
-            - build
+      - test
