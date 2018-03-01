@@ -31,7 +31,7 @@ jobs:
       - run:
           name: Access Matbao hosting & go to iphonebacgiang.com directory
           #command: ssh 125.253.113.81 -l tan && cd /var/www/html/iphonebacgiang.com
-          command: echo SSH_KEY
+          command: echo $SSH_KEY
   test:
     <<: *defaults
     steps:
