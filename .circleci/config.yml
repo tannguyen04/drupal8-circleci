@@ -32,7 +32,7 @@ jobs:
       - image: juampynr/drupal8ci:latest
     steps:
       - checkout
-      - run: vendor/bin/phpcs --standard=Drupal web/core/modules/node/node.module
+      #- run: vendor/bin/phpcs --standard=Drupal web/core/modules/node/node.module
       - run: echo "Hello Tan Tan"
 workflows:
   version: 2
