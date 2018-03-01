@@ -21,7 +21,7 @@ jobs:
       - checkout
       - add_ssh_keys:
           fingerprints:
-            - "b7:35:a6:4e:9b:0d:6d:d4:78:1e:9a:97:2a:66:6b:be"
+            - "34:c0:c8:7b:6b:15:7c:0e:59:ed:ea:00:d9:9a:b4:f6"
       #- run: 
           name: Composer install
           command: composer install --dev
