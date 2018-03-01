@@ -8,8 +8,6 @@ jobs:
     docker:
       # Use custom docker
       - image: juampynr/drupal8ci:latest
-      # specify the version you desire here
-      - image: circleci/php:7.1.5-browsers
       # Mysql
       - image: mysql:latest
         restart: always
@@ -19,29 +17,28 @@ jobs:
     working_directory: /var/www/html
     steps:
       - checkout
-      - run: composer install --dev
-      - run: vendor/drupal/console/bin/drupal site:install  standard --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --no-interaction
-  verify_coding_standards:
+      - run: 
+          name: Composer install
+          command: composer install --dev
+      - run:
+          name: Install Drupal site 
+          command: vendor/drupal/console/bin/drupal site:install  standard --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --no-interaction
+      - run:
+          name: Set install paths for coder_sniffer 
+          command: vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
+  test:
     docker:
       # Use custom docker
       - image: juampynr/drupal8ci:latest
-      # specify the version you desire here
-      - image: circleci/php:7.1.5-browsers
-      # Mysql
-      - image: mysql:latest
-        restart: always
-        environment:
-          MYSQL_DATABASE: drupal8_circleci
-          MYSQL_ROOT_PASSWORD: sentius
     steps:
-      - run: vendor/bin/phpcs --config-set installed_paths vendor/drupal/coder/coder_sniffer
+      - checkout
       - run: vendor/bin/phpcs --standard=Drupal web/core/modules/node/node.module
       - run: echo "Hello Tan Tan"
- workflows:
+workflows:
   version: 2
-  build_and_verify_coding_standards:
+  build_and_test:
     jobs:
       - build
-      - verify_coding_standards:
-        - requires:
-          - build
+      - test:
+          requires:
+            - build
