@@ -26,7 +26,7 @@ jobs:
           name: Composer install
           command: composer install --dev
       #- run:
-          name: Install Drupal site 
+          name: Install Drupal site A
           command: vendor/drupal/console/bin/drupal site:install  standard --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --no-interaction
       - run:
           name: Access Matbao hosting & go to iphonebacgiang.com directory
