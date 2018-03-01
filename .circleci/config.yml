@@ -30,7 +30,10 @@ jobs:
           command: vendor/drupal/console/bin/drupal site:install  standard --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --no-interaction
       - run:
           name: Access Matbao hosting & go to iphonebacgiang.com directory
-          command: echo $SSH_KEY >> ~/.ssh/known_hosts && ssh 125.253.113.81 -l tan && 'cd /var/www/html/iphonebacgiang.com'
+          command: echo $SSH_KEY >> ~/.ssh/known_hosts
+      - run:
+          name: Deploy nao
+          command: deploy.sh
   test:
     <<: *defaults
     steps:
