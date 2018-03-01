@@ -19,10 +19,13 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: 
+      - add_ssh_keys:
+          fingerprints:
+            - "b7:35:a6:4e:9b:0d:6d:d4:78:1e:9a:97:2a:66:6b:be"
+      #- run: 
           name: Composer install
           command: composer install --dev
-      - run:
+      #- run:
           name: Install Drupal site 
           command: vendor/drupal/console/bin/drupal site:install  standard --account-name="admin" --site-mail="admin@example.com" --site-name="drupal8" --db-name="drupal8_circleci" --db-user="root" --db-pass="sentius" --no-interaction
       - run:
@@ -45,4 +48,4 @@ workflows:
   build_and_test:
     jobs:
       - build
-      - test
+      #- test
