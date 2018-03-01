@@ -8,6 +8,7 @@
 # If you'd like to install without this script, here's where to look:
 #######################################
 
-ssh 125.253.113.81 -l tan
+ssh 125.253.113.81 -l tan << EOF
 cd /var/www/html/iphonebacgiang.com
 exit
+EOF
