@@ -11,5 +11,6 @@
 ssh -T tan@125.253.113.81 << EOF
 cd /var/www/html/iphonebacgiang.com
 drush uli
+echo "Hello Master branch"
 exit
 EOF
