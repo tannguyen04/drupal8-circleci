@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bd25c9921665eaf0143eb31c8e689051",
+    "content-hash": "2738054cb438a8b9e60060496b4671c2",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4796,7 +4796,7 @@
                 "testing",
                 "web"
             ],
-            "time": "2018-01-07T17:25:05+00:00"
+            "time": "2018-01-07 17:25:05"
         },
         {
             "name": "behat/mink-browserkit-driver",
