@@ -14,6 +14,6 @@ drush uli
 echo "Hello Master branch"
 echo "Hello Master branch 1"
 echo "Hello rebase branch"
-echo "Hello rebase branch 1"
+echo "Hello rebase branch 1 "
 exit
 EOF
