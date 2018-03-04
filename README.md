@@ -19,11 +19,11 @@ for your setup.
 
 ### Local development
 1. Install via docksal
-  1.1. [Install docksal](https://docksal.readthedocs.io/en/master/getting-started/env-setup/).
-  1.2. Run `composer install` && `fin init`
-2. Install via normal way.
-  1.1. Run `composer install`
-  1.2. Setup mysql, apache ...
+  1. [Install docksal](https://docksal.readthedocs.io/en/master/getting-started/env-setup/).
+  1. Run `composer install` && `fin init`
+1. Install via normal way.
+  1. Run `composer install`
+  1. Setup mysql, apache ...
 
 With `composer require ...` you can download new dependencies to your 
 installation.
