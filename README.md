@@ -17,11 +17,13 @@ First you need to [install composer](https://getcomposer.org/doc/00-intro.md#ins
 You might need to replace `composer` with `php composer.phar` (or similar) 
 for your setup.
 
-After that you can create the project:
-
-```
-composer create-project drupal-composer/drupal-project:8.x-dev some-dir --stability dev --no-interaction
-```
+### Local development
+1. Install via docksal
+  1.1. [Install docksal](https://docksal.readthedocs.io/en/master/getting-started/env-setup/).
+  1.2. Run `composer install` && `fin init`
+2. Install via normal way.
+  1.1. Run `composer install`
+  1.2. Setup mysql, apache ...
 
 With `composer require ...` you can download new dependencies to your 
 installation.
